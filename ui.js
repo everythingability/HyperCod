@@ -137,6 +137,8 @@ export class UI {
                 { label: 'HyperCod Language Reference', action: () => window.open('HyperCod Reference.html', '_blank') },
                 { label: 'Javascript Reference', action: () => window.open('Javascript Reference.html', '_blank') },
                 { label: 'All About HyperCOD', action: () => window.open('https://everythingability.github.io/HyperCod/docs/', '_blank') },
+                null,
+                { label: 'Github Repository', action: () => window.open('https://github.com/everythingability/HyperCod', '_blank') },
             ],
         };
 

@@ -42,7 +42,9 @@ Note: You can install HyperCod as a PWA (Progressive With Attitude) on your devi
 
 ## 🛠 Developer Links
 
-*   **[Github Repository](https://github.com/everythingability/HyperCod)** - View the source code and contribute.
+*   **[Github Repository](https://github.com/everythingability/HyperCod)** - View the source code and contribute. Well that's the idea, but I'm not very good with Github, so maybe download the code, improve it and share it again on here somewhere.
+
+
 
 ---
 
