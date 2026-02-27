@@ -38,7 +38,9 @@ Note: You can install HyperCod as a PWA (Progressive With Attitude) on your devi
 
 ![HyperCOD Install](Install.png)
 
-## 🛠 How to Import a Stack
+## 🛠 How to Import a Stack You Made Earlier
+
+Note: This tool **can't import old Hypercard stacks**, it can only import stacks made with HyperCod.
 
 1.  **Launch the App**: Open [HyperCOD](https://everythingability.github.io/HyperCod/) in your browser.
 2.  **Import the Stack**: Click the File menu and select "File > Import Stack JSON..." and choose the **All About HyperCOD.json** file.
@@ -49,6 +51,7 @@ Note: You can install HyperCod as a PWA (Progressive With Attitude) on your devi
 2.  **Navigate to the Directory**: `cd HyperCod`
 3.  **Run a webserver**: `python -m http.server`
 4.  **Open the app**: `http://localhost:8000`
+
 
 But remember, if you run the PWA, or run it on github pages, or load it from a webserver, your stack content will be stored in the browser's local storage - so may be different from the stack content stored in the browser's local storage when you run it locally. 
 ---
