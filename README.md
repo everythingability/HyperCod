@@ -32,6 +32,17 @@ It brings the spirit of 80s/90s creative computing to the modern web, allowing y
           go to the next card
         end mouseUp
         ```
+## Install HyperCod
+
+Note: You can install HyperCod as a PWA (Progressive With Attitude) on your device by clicking the install button in the browser's address bar.
+
+![HyperCOD Install](Install.png)
+
+---
+
+## 🛠 Developer Links
+
+*   **[Github Repository](https://github.com/everythingability/HyperCod)** - View the source code and contribute.
 
 ---
 
