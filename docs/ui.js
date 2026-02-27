@@ -136,7 +136,7 @@ export class UI {
                 { id: 'menu-help-toggle', label: 'Show HyperCode Help', action: () => this.app.help.toggle(), key: '⌘/' },
                 { label: 'HyperCod Language Reference', action: () => window.open('HyperCod Reference.html', '_blank') },
                 { label: 'Javascript Reference', action: () => window.open('Javascript Reference.html', '_blank') },
-                { label: 'All About HyperCOD', action: () => window.open('./All About HyperCOD/', '_blank') },
+                { label: 'All About HyperCOD', action: () => window.open('https://everythingability.github.io/HyperCod/', '_blank') },
             ],
         };
 
