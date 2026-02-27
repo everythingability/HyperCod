@@ -7,7 +7,7 @@ HyperCod is an interactive platform and English-like scripting language inspired
 ## 🚀 Live Links
 
 *   **[Use HyperCOD](https://everythingability.github.io/HyperCod/)** - Launch the application and start building.
-*   **[All About HyperCOD](https://everythingability.github.io/HyperCod/docs/)** - Full Language Reference and Documentation.
+*   **[All About HyperCOD](https://everythingability.github.io/HyperCod/docs/)** - A demo of what it is and what it can do.
 
 ## 📝 What is HyperCod?
 
@@ -32,8 +32,7 @@ It brings the spirit of 80s/90s creative computing to the modern web, allowing y
           go to the next card
         end mouseUp
         ```
-4.  **Reference the Docs**: If you're unsure of a command, check the [All About HyperCOD](https://everythingability.github.io/HyperCod/docs/) reference guide for a complete list of syntax, properties, and examples.
 
 ---
 
-© 2026 HyperCod Interactive
+© 2026 Tom Smith
