@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="HyperCod — a modern HyperCard clone PWA">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>HyperCod</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" href="./hypercode_favicon_192x192.png">
+  <link rel="apple-touch-icon" href="./hypercode_favicon_192x192.png">
+  <link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+
+  <!-- Splash screen (auto-fades after 1.2s) -->
+  <div id="splash">
+    <img src="./hypercod_700x700.png" class="splash-img" alt="HyperCod Logo">
+    <div class="splash-logo">HyperCod</div>
+    <div class="splash-sub">Loading stack…</div>
+    <div class="splash-credits">
+      <div class="splash-author">By Tom Smith</div>
+      <a href="https://ko-fi.com/R6R51UZE0F" target="_blank" class="mac-btn splash-kofi">Buy me a coffee</a>
+      <button class="mac-btn splash-close">Return to Stack</button>
+    </div>
+    <div class="splash-bar-wrap">
+      <div class="splash-bar"></div>
+    </div>
+  </div>
+
+  <!-- ── Menu Bar ──────────────────────────────────────────────────────────── -->
+  <div id="menu-bar"></div>
+
+  <!-- ── Main card canvas area ─────────────────────────────────────────────── -->
+  <div id="app-container">
+    <div id="card-canvas"></div>
+  </div>
+
+  <!-- ── Tool Windoid ──────────────────────────────────────────────────────── -->
+  <div id="tool-windoid" class="windoid"></div>
+
+  <!-- ── Message Box ───────────────────────────────────────────────────────── -->
+  <div id="message-box" class="windoid"></div>
+
+  <!-- ── Help Windoid ───────────────────────────────────────────────────────── -->
+  <div id="help-windoid" class="windoid"></div>
+
+  <!-- ── Cards Windoid ───────────────────────────────────────────────────────── -->
+  <div id="cards-windoid" class="windoid"></div>
+
+  <!-- ── App entry (ES module) ─────────────────────────────────────────────── -->
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>

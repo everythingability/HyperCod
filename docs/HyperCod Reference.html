@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperCod Language Reference</title>
+    <style>
+        :root {
+            --mac-black: #000000;
+            --mac-white: #ffffff;
+            --mac-grey: #cccccc;
+            --mac-dark: #666666;
+            --mac-highlight: #000080;
+            --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            border-bottom: 4px double var(--mac-black);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--mac-dark);
+            font-weight: bold;
+        }
+
+        nav {
+            background: var(--mac-grey);
+            padding: 15px;
+            border: 2px solid var(--mac-black);
+            margin-bottom: 40px;
+            box-shadow: 4px 4px 0 var(--mac-black);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--mac-black);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--mac-highlight);
+            text-decoration: underline;
+        }
+
+        section {
+            background: var(--mac-white);
+            padding: 30px;
+            border: 2px solid var(--mac-black);
+            margin-bottom: 40px;
+            box-shadow: 6px 6px 0 var(--mac-grey);
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--mac-grey);
+            padding-bottom: 10px;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background: #222;
+            color: #eee;
+            padding: 20px;
+            border-left: 5px solid var(--mac-dark);
+            overflow-x: auto;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            font-size: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .copy-btn:hover {
+            background: #444;
+        }
+
+        .example-box {
+            border: 1px dashed var(--mac-dark);
+            padding: 15px;
+            background: #fafafa;
+            margin: 15px 0;
+        }
+
+        .example-label {
+            font-size: 12px;
+            color: var(--mac-dark);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid var(--mac-grey);
+        }
+
+        th {
+            background: #eee;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--mac-dark);
+            font-size: 12px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>HyperCod Language Reference</h1>
+        <div class="subtitle">Complete guide to scripting interactive cards</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#syntax">Syntax Basics</a></li>
+            <li><a href="#navigation">Navigation</a></li>
+            <li><a href="#data">Handling Data</a></li>
+            <li><a href="#interaction">User Interaction</a></li>
+            <li><a href="#logic">Logic & Loops</a></li>
+            <li><a href="#objects">Objects & Properties</a></li>
+            <li><a href="#effects">Visuals & Animation</a></li>
+            <li><a href="#js">JavaScript Integration</a></li>
+        </ul>
+    </nav>
+
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>HyperCode is an English-like scripting language inspired by HyperTalk. It is designed to be highly readable,
+            allowing you to create complex interactions with simple "natural" commands. Every script in HyperCod
+            consists of <strong>handlers</strong> that respond to messages like clicking a button or opening a card.</p>
+    </section>
+
+    <section id="syntax">
+        <h2>Syntax Basics</h2>
+        <p>Scripts are organized into handlers. A handler starts with <code>on</code> followed by the message name, and
+            ends with <code>end</code> followed by the same name.</p>
+        <div class="example-box">
+            <div class="example-label">Basic Handler Structure</div>
+            <pre><code>on mouseUp
+  beep
+  answer "You clicked me!"
+end mouseUp</code></pre>
+        </div>
+        <p>You can add comments to your code using two dashes <code>--</code>. Anything after the dashes on that line is
+            ignored by the engine.</p>
+        <pre><code>-- This is a comment
+beep -- This beeps once</code></pre>
+    </section>
+
+    <section id="navigation">
+        <h2>Navigation</h2>
+        <p>The <code>go</code> command is used to move between cards in your stack.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>go next</code></td>
+                    <td>Move to the next card.</td>
+                </tr>
+                <tr>
+                    <td><code>go previous</code></td>
+                    <td>Move to the previous card.</td>
+                </tr>
+                <tr>
+                    <td><code>go first</code></td>
+                    <td>Move to the first card in the stack.</td>
+                </tr>
+                <tr>
+                    <td><code>go last</code></td>
+                    <td>Move to the last card in the stack.</td>
+                </tr>
+                <tr>
+                    <td><code>go to card "Home"</code></td>
+                    <td>Go to a card named "Home".</td>
+                </tr>
+                <tr>
+                    <td><code>go card 5</code></td>
+                    <td>Go to the 5th card in the stack.</td>
+                </tr>
+                <tr>
+                    <td><code>go back</code></td>
+                    <td>Return to the card you were previously on.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="data">
+        <h2>Handling Data</h2>
+        <p>The <code>put</code> and <code>get</code> commands are the core of data movement. <code>put</code> can store
+            values into variables or fields.</p>
+        <div class="example-box">
+            <div class="example-label">Examples of Data Handling</div>
+            <pre><code>-- Putting text into a field
+put "Welcome to the stack" into card field "Welcome"
+
+-- Concatenating strings with &
+put "Today is " & the date into card field 1
+
+-- Using variables
+put 50 into myWealth
+put myWealth * 2 into myWealth
+answer "Total wealth: " & myWealth
+
+-- Appending and Prepending
+put "!" after card field "Notes"
+put "Breaking: " before card field "News"
+
+-- The special "it" variable
+get the number of cards
+answer "We have " & it & " cards!"</code></pre>
+        </div>
+        <h3>Global Functions & Properties</h3>
+        <ul>
+            <li><code>the date</code>: Current calendar date.</li>
+            <li><code>the time</code>: Current system time.</li>
+            <li><code>the number of cards</code>: Total count of cards in stack.</li>
+            <li><code>the name of card</code>: Name of the current card.</li>
+            <li><code>the id of card</code>: Unique ID of the current card.</li>
+            <li><code>the number of card</code>: Index of the current card.</li>
+            <li><code>random(n)</code>: Returns a random number between 1 and n.</li>
+            <li><code>the width</code>: The width of the card.</li>
+            <li><code>the height</code>: The height of the card.</li>
+            <li><code>the clickText</code>: The text of the field that was just clicked.</li>
+        </ul>
+    </section>
+
+    <section id="interaction">
+        <h2>User Interaction</h2>
+        <p>Interact with the user via dialogs and sounds.</p>
+        <div class="example-box">
+            <div class="example-label">Interaction Commands</div>
+            <pre><code>-- Simple alert
+answer "Process complete!"
+
+-- User input
+ask "Please enter your name:"
+put it into card field "Username"
+
+-- Sound
+beep
+
+-- Debugging (Developer Console)
+log "New position is: " & myLoc</code></pre>
+        </div>
+        <p>You can also open external links using <code>open url</code>:</p>
+        <pre><code>open url "https://www.google.com"</code></pre>
+    </section>
+
+    <section id="logic">
+        <h2>Logic & Control Flow</h2>
+        <p>HyperCod supports standard conditional logic and loops.</p>
+        <h3>Conditional (If/Then)</h3>
+        <pre><code>on mouseUp
+  ask "What is 2 + 2?"
+  if it is 4 then
+    answer "Correct!"
+  else
+    answer "Try again."
+  end if
+end mouseUp</code></pre>
+
+        <h3>Loops (Repeat)</h3>
+        <pre><code>-- Repeat a fixed number of times
+repeat 5 times
+  beep
+  wait 1 second
+end repeat
+
+-- Loop with a counter
+repeat with i = 1 to 10
+  put i into card field "Counter"
+  wait 10 -- ms
+end repeat
+
+-- Loop while a condition is true
+put 1 into x
+repeat while x < 100
+  put x into card field "Stats"
+  put x + 7 into x
+end repeat</code></pre>
+    </section>
+
+    <section id="objects">
+        <h2>Objects & Properties</h2>
+        <p>You can change the appearance and behavior of buttons, fields, and cards dynamically using <code>set</code>,
+            <code>show</code>, and <code>hide</code>.
+        </p>
+
+        <h3>Commands</h3>
+        <ul>
+            <li><code>show button "Play"</code></li>
+            <li><code>hide card field 2</code></li>
+            <li><code>set visible of button 1 to false</code></li>
+            <li><code>set title of button "Start" to "Finish"</code></li>
+            <li><code>set content of field "Display" to "New Text"</code></li>
+            <li><code>set backgroundColor of card to "blue"</code></li>
+        </ul>
+
+        <h3>Supported Properties</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Applies To</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>name</code></td>
+                    <td>All Objects</td>
+                    <td><code>the name of button 1</code></td>
+                </tr>
+                <tr>
+                    <td><code>title</code></td>
+                    <td>Buttons</td>
+                    <td>Visible text on a button.</td>
+                </tr>
+                <tr>
+                    <td><code>visible</code></td>
+                    <td>Buttons, Fields</td>
+                    <td><code>true</code> or <code>false</code>.</td>
+                </tr>
+                <tr>
+                    <td><code>enabled</code></td>
+                    <td>Buttons</td>
+                    <td>Whether a button can be clicked.</td>
+                </tr>
+                <tr>
+                    <td><code>content</code></td>
+                    <td>Fields</td>
+                    <td>The text inside the field.</td>
+                </tr>
+                <tr>
+                    <td><code>backgroundColor</code></td>
+                    <td>Cards</td>
+                    <td>CSS color string (e.g. "red", "#ff0000").</td>
+                </tr>
+                <tr>
+                    <td><code>left</code>, <code>top</code></td>
+                    <td>All Objects</td>
+                    <td>X and Y coordinates (e.g. <code>set the left of me to 10</code>).</td>
+                </tr>
+                <tr>
+                    <td><code>width</code>, <code>height</code></td>
+                    <td>All Objects</td>
+                    <td>Dimensions in pixels.</td>
+                </tr>
+                <tr>
+                    <td><code>loc</code></td>
+                    <td>All Objects</td>
+                    <td>The center point (location) as "x,y".</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="effects">
+        <h2>Visual Effects & Animation</h2>
+        <p>Add polish to your stack with transitions and object animations.</p>
+
+        <h3>Card Transitions</h3>
+        <p>Set a transition <em>before</em> navigating to another card.</p>
+        <pre><code>on mouseUp
+  visual effect "dissolve"
+  go next
+end mouseUp</code></pre>
+        <p><strong>Available effects:</strong> dissolve, wipe-left, wipe-right, slide-up, slide-down, zoom-in, zoom-out.
+        </p>
+
+        <h3>Object Animation</h3>
+        <p>Animate a specific object on the screen.</p>
+        <pre><code>on mouseUp
+  animate button "Star" with "bounce"
+end mouseUp</code></pre>
+        <p><strong>Available animations:</strong> bounce, pulse, shake, swing, fade-in, scale-up.</p>
+
+        <h3>Idle & Background Motion</h3>
+        <p>The <code>idle</code> handler runs roughly every 300ms, making it perfect for autonomous movement.</p>
+        <div class="example-box">
+            <div class="example-label">Walking Image Example</div>
+            <pre><code>on idle
+  -- 1. Get current position
+  put the left of me into myLeft
+  put the top of me into myTop
+  
+  -- 2. Add random movement (-20 to +80 pixels)
+  put myLeft + (random(100) - 20) into myLeft
+  put myTop + (random(100) - 20) into myTop
+  
+  -- 3. Wrap around screen edges
+  if myLeft > the width then put -50 into myLeft
+  if myLeft < -50 then put the width into myLeft
+  
+  if myTop > the height then put -50 into myTop
+  if myTop < -50 then put the height into myTop
+  
+  -- 4. Apply new position and log it
+  set the left of me to myLeft
+  set the top of me to myTop
+  log "Co-ords: " & myLeft & "," & myTop
+end idle</code></pre>
+        </div>
+    </section>
+
+    <section id="js">
+        <h2>JavaScript Integration</h2>
+        <p>For advanced users, you can use raw JavaScript by starting your script with <code>// @javascript</code>. In
+            this mode, you have direct access to the <code>app</code> engine.</p>
+        <div class="example-box">
+            <div class="example-label">JavaScript Example</div>
+            <pre><code>// @javascript
+const cards = app.state.cards;
+app.ui._pickImageFile((dataUrl) => {
+  app.state.currentCard.backgroundImage = dataUrl;
+  app.ui.renderCard();
+});</code></pre>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HyperCod Interactive - Retro Computing for the Modern Web</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('pre').forEach(pre => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.innerText = 'Copy';
+            btn.onclick = () => {
+                const code = pre.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.innerText = 'Copied!';
+                    setTimeout(() => btn.innerText = 'Copy', 2000);
+                });
+            };
+            pre.appendChild(btn);
+        });
+    </script>
+
+</body>
+
+</html>

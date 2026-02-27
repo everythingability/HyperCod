@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperCod JavaScript Reference</title>
+    <style>
+        :root {
+            --mac-black: #000000;
+            --mac-white: #ffffff;
+            --mac-grey: #cccccc;
+            --mac-dark: #666666;
+            --mac-highlight: #000080;
+            --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f0f4f8;
+        }
+
+        header {
+            border-bottom: 4px double var(--mac-black);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--mac-dark);
+            font-weight: bold;
+        }
+
+        nav {
+            background: #eee;
+            padding: 15px;
+            border: 2px solid var(--mac-black);
+            margin-bottom: 40px;
+            box-shadow: 4px 4px 0 var(--mac-black);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--mac-black);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--mac-highlight);
+            text-decoration: underline;
+        }
+
+        section {
+            background: var(--mac-white);
+            padding: 30px;
+            border: 2px solid var(--mac-black);
+            margin-bottom: 40px;
+            box-shadow: 6px 6px 0 var(--mac-grey);
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--mac-grey);
+            padding-bottom: 10px;
+            font-size: 24px;
+            color: #d32f2f;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: #fdf2f2;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background: #1a1a1a;
+            color: #9cdcfe;
+            padding: 20px;
+            border-left: 5px solid #d32f2f;
+            overflow-x: auto;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .comment {
+            color: #6a9955;
+        }
+
+        .func {
+            color: #dcdcaa;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            font-size: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .copy-btn:hover {
+            background: #444;
+        }
+
+        .example-box {
+            border: 1px dashed var(--mac-dark);
+            padding: 15px;
+            background: #fafafa;
+            margin: 15px 0;
+        }
+
+        .example-label {
+            font-size: 12px;
+            color: var(--mac-dark);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--mac-dark);
+            font-size: 12px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>HyperCod JavaScript Reference</h1>
+        <div class="subtitle">Direct engine access for advanced interactive content</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">JS Mode Basics</a></li>
+            <li><a href="#navigation">Navigation</a></li>
+            <li><a href="#data">State & Data</a></li>
+            <li><a href="#interaction">UI & Dialogs</a></li>
+            <li><a href="#network">Network & URL</a></li>
+            <li><a href="#objects">Object Manipulation</a></li>
+            <li><a href="#visuals">Visuals & Animation</a></li>
+        </ul>
+    </nav>
+
+    <section id="intro">
+        <h2>JS Mode Basics</h2>
+        <p>To use JavaScript in any object, start your script with the <code>// @javascript</code> header. In this mode,
+            your script is executed as an <code>async</code> function with full access to the <code>app</code> instance
+            and the <code>handler</code> name (e.g. "mouseUp" or "idle").
+        </p>
+        <div class="example-box">
+            <div class="example-label">Header & Event Handling</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">if</span> (handler !== <span class="string">"mouseUp"</span>) <span class="keyword">return</span>;
+
+<span class="func">alert</span>(<span class="string">"This script only runs on mouseUp!"</span>);</code></pre>
+        </div>
+    </section>
+
+    <section id="navigation">
+        <h2>Navigation</h2>
+        <p>Use the <code>app.goToCard()</code> method to navigate. It accepts card IDs, names (lowercase), or keywords
+            like "next", "prev", "first", and "last".</p>
+        <div class="example-box">
+            <div class="example-label">Navigating Cards</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">await</span> app.<span class="func">goToCard</span>(<span class="string">"next"</span>);
+<span class="keyword">await</span> app.<span class="func">goToCard</span>(<span class="string">"home"</span>);
+<span class="keyword">await</span> app.<span class="func">goToCard</span>(<span class="string">"back"</span>);</code></pre>
+        </div>
+    </section>
+
+    <section id="data">
+        <h2>State & Data</h2>
+        <p>You can read and modify the entire stack state directly via <code>app.state</code>. This is the equivalent of
+            <code>put</code> and <code>get</code> in HyperCode.
+        </p>
+        <div class="example-box">
+            <div class="example-label">Reading State</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">const</span> cardCount = app.state.cards.length;
+<span class="keyword">const</span> currentCardName = app.state.currentCard.name;
+<span class="keyword">const</span> itValue = app.state.it; <span class="comment">// Global "it" container</span>
+
+<span class="comment">// Setting the "it" value manually</span>
+app.state.it = <span class="string">"Saved from JS"</span>;</code></pre>
+        </div>
+
+        <div class="example-box">
+            <div class="example-label">Idle (Update Loop)</div>
+            <p>The <code>idle</code> handler fires roughly every 300ms. Use it for constant background logic or
+                persistent animations.</p>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">if</span> (handler !== <span class="string">"idle"</span>) <span class="keyword">return</span>;
+<span class="comment">// Your periodic logic here...</span></code></pre>
+        </div>
+    </section>
+
+    <section id="interaction">
+        <h2>UI & Dialogs</h2>
+        <p>Standard browser dialogs work, or you can use the built-in <code>app.dialogs</code> for complex interactions.
+        </p>
+        <div class="example-box">
+            <div class="example-label">Dialog Examples</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">const</span> name = <span class="func">prompt</span>(<span class="string">"What is your name?"</span>);
+<span class="keyword">if</span> (name) {
+    <span class="func">alert</span>(<span class="string">"Hello, "</span> + name);
+}
+
+<span class="comment">// Triggering built-in stack info</span>
+app.dialogs.<span class="func">openStackInfo</span>();</code></pre>
+        </div>
+    </section>
+
+    <section id="network">
+        <h2>Network & URL (Fetch)</h2>
+        <p>One of the most powerful features of JS mode is the ability to fetch external data and display it in your
+            stack.</p>
+        <div class="example-box">
+            <div class="example-label">Retrieve URL into Field</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="keyword">if</span> (handler !== <span class="string">"mouseUp"</span>) <span class="keyword">return</span>;
+
+<span class="keyword">try</span> {
+    <span class="comment">// Fetch some plain text from a URL</span>
+    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="func">fetch</span>(<span class="string">"https://baconipsum.com/api/?type=meat-and-filler&sentences=1&format=text"</span>);
+    <span class="keyword">const</span> text = <span class="keyword">await</span> response.<span class="func">text</span>();
+
+    <span class="comment">// Find field named "News" and set its content</span>
+    <span class="keyword">const</span> field = app.<span class="func">findObjectByName</span>(<span class="string">"News"</span>, <span class="string">"field"</span>);
+    <span class="keyword">if</span> (field) {
+        field.content = text;
+        <span class="comment">// CRITICAL: Must trigger UI update</span>
+        app.ui.<span class="func">renderCard</span>();
+        app.<span class="func">scheduleAutoSave</span>();
+    }
+} <span class="keyword">catch</span> (e) {
+    <span class="func">alert</span>(<span class="string">"Fetch failed: "</span> + e.message);
+}</code></pre>
+        </div>
+    </section>
+
+    <section id="objects">
+        <h2>Object Manipulation</h2>
+        <p>In JS mode, you must find the object model first, modify its properties, and then tell the UI to re-render.
+        </p>
+        <div class="example-box">
+            <div class="example-label">Setting Object Properties</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="comment">// Note: findObjectByName is available on the engine/app</span>
+<span class="keyword">const</span> btn = app.<span class="func">findObjectByName</span>(<span class="string">"Submit"</span>, <span class="string">"button"</span>);
+<span class="keyword">if</span> (btn) {
+    btn.visible = <span class="keyword">false</span>;
+    btn.title = <span class="string">"Processing..."</span>;
+    
+    app.ui.<span class="func">renderCard</span>();
+}</code></pre>
+        </div>
+    </section>
+
+    <section id="visuals">
+        <h2>Visuals & Animation</h2>
+        <p>You can trigger the same transitions and animations used by the main language.</p>
+        <div class="example-box">
+            <div class="example-label">Transitions & Effects</div>
+            <pre><code><span class="comment">// @javascript</span>
+<span class="comment">// Set transition for next card move</span>
+app.state.nextTransition = <span class="string">"dissolve"</span>;
+<span class="keyword">await</span> app.<span class="func">goToCard</span>(<span class="string">"next"</span>);
+
+<span class="comment">// Animate a specific element</span>
+<span class="keyword">const</span> logo = app.<span class="func">findObjectByName</span>(<span class="string">"Logo"</span>);
+<span class="keyword">if</span> (logo) {
+    <span class="comment">// Access the DOM element to apply CSS animations</span>
+    <span class="keyword">const</span> el = <span class="func">document</span>.<span class="func">querySelector</span>(<span class="string">`[data-id="${logo.id}"]`</span>);
+    <span class="keyword">if</span> (el) {
+        el.classList.<span class="func">add</span>(<span class="string">"hc-anim-bounce"</span>);
+        <span class="func">setTimeout</span>(() => el.classList.<span class="func">remove</span>(<span class="string">"hc-anim-bounce"</span>), <span class="number">1000</span>);
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HyperCod Interactive - Advanced Scripting Guide</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('pre').forEach(pre => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.innerText = 'Copy';
+            btn.onclick = () => {
+                const code = pre.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.innerText = 'Copied!';
+                    setTimeout(() => btn.innerText = 'Copy', 2000);
+                });
+            };
+            pre.appendChild(btn);
+        });
+    </script>
+
+</body>
+
+</html>
