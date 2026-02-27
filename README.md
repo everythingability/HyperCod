@@ -1,6 +1,6 @@
 # HyperCod
 
-![HyperCOD Screenshot](HyperCOD_screenshot2.png)
+![HyperCOD Screenshot](HyperCod_screenshot2.png)
 ![HyperCOD Screenshot](HyperCOD_screenshot3.png)
 
 HyperCod is an interactive platform and English-like scripting language inspired by the classic **HyperTalk**. It allows you to create complex interactions, interactive "stacks," and multimedia applications using a simple, "natural" syntax.
